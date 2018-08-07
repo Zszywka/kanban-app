@@ -1,6 +1,7 @@
+//akcje powiązane z notkami
 // Export Constants
 import uuid from 'uuid';
-//akcje powiązane z notkami
+
 // Export Constants
 export const CREATE_NOTE = 'CREATE_NOTE';
 export const UPDATE_NOTE = 'UPDATE_NOTE';
