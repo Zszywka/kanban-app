@@ -4,6 +4,10 @@
 import Lane from '../models/lane';
 import uuid from 'uuid';
 
+export function getSomething(req, res) {
+  return res.status(200).end();
+}
+
 //odczytanie kolekcji zapisanych linii
 export function getLanes(req, res) {
 // .find() bez żadnych parametrów zwróci wszystkie dokumenty z kolekcji lanes
@@ -47,5 +51,17 @@ export function deleteLane(req, res) {
     lane.remove(() => {
       res.status(200).end();
     });
+  });
+}
+
+export function editLane(req, res) {
+  if (!req.body.name) {
+    res.status(403).end();
+  }
+  Lane.findOneAndUpdate({ id: req.params.laneId }, { name: req.body.name }).exec((err, oldName) => {
+    if (err) {
+      res.status(500).send(err);
+    }
+    res.json(oldName);
   });
 }
