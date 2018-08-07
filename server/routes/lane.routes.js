@@ -9,4 +9,7 @@ router.route('/lanes').get(LaneController.getLanes);
 // Add a new Lane (POST,localhost:8000/api/lanes)
 router.route('/lanes').post(LaneController.addLane);
 
+// Delete a lane by laneId(jako parametr przyjmuje lanedId)(DELETE,localhost:8000/api/lanes/290fdf27-f976-46b6-958f-dd923a4c1234 )
+router.route('/lanes/:laneId').delete(LaneController.deleteLane);
+
 export default router;

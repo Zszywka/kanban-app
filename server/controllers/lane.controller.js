@@ -3,6 +3,18 @@
 //tutaj: komunikację z naszą bazą MongoDB
 import Lane from '../models/lane';
 import uuid from 'uuid';
+
+//odczytanie kolekcji zapisanych linii
+export function getLanes(req, res) {
+// .find() bez żadnych parametrów zwróci wszystkie dokumenty z kolekcji lanes
+  Lane.find().exec((err, lanes) => {
+    if (err) {
+      res.status(500).send(err);
+    }
+    res.json({ lanes });
+  });
+}
+
 //addLane sprawdza, czy w ciele zapytania znajduje się parametr name, w którym określamy nazwę linii
 export function addLane(req, res) {
   //jeśli nie, odsyła status odp 403-serwer odmawia nawiązania połączenia
@@ -24,13 +36,16 @@ export function addLane(req, res) {
     res.json(saved);
   });
 }
-//odczytanie kolekcji zapisanych linii
-export function getLanes(req, res) {
-// .find() bez żadnych parametrów zwróci wszystkie dokumenty z kolekcji lanes
-  Lane.find().exec((err, lanes) => {
+
+export function deleteLane(req, res) {
+//usuwanie polega na odnalezieniu w kolekcji linii modelu z odpowiednim id
+  Lane.findOne({ id: req.params.laneId }).exec((err, lane) => {
     if (err) {
       res.status(500).send(err);
     }
-    res.json({ lanes });
+//wywołaniu na nim metody .remove() i odesłaniu odpowiedzi z kodem 200 (OK)
+    lane.remove(() => {
+      res.status(200).end();
+    });
   });
 }
