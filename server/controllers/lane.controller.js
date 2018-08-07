@@ -24,3 +24,13 @@ export function addLane(req, res) {
     res.json(saved);
   });
 }
+//odczytanie kolekcji zapisanych linii
+export function getLanes(req, res) {
+// .find() bez żadnych parametrów zwróci wszystkie dokumenty z kolekcji lanes
+  Lane.find().exec((err, lanes) => {
+    if (err) {
+      res.status(500).send(err);
+    }
+    res.json({ lanes });
+  });
+}
