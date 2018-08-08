@@ -1,30 +1,38 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import Lanes from '../Lane/Lanes';
+import styles from '../Lane/Lane.css';
+import { createLane } from '../Lane/LaneActions';
 
-// Import Style
-import styles from './Kanban.css';
+//przekazywanie informacji dotyczących linii
+//również będzie on odpowiadał za możliwość stworzenia nowej linii
+//button umozliwia dodanie nowej linie
+const Kanban = (props) => (
+  <div>
+      <button
+        className={styles.AddLane}
+        onClick={() => props.createLane({
+          name: 'New lane',
+        })}
+      >Add lane</button>
+      <Lanes lanes={props.lanes} />
+  </div>
+);
 
-class Kanban extends Component {
-  render() {
-    return (
-    );
-  }
-}
-
-const mapStateToProps = (state) => {
-  return {};
-};
-
-const mapDispatchToProps = (dispatch) => {
-  return {};
-};
+Kanban.need = [() => { return fetchLanes(); }];
 
 Kanban.propTypes = {
+  lanes: PropTypes.array,
+  createLane: PropTypes.func,
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Kanban);
+const mapStateToProps = state => ({
+  lanes: state.lanes,
+});
+
+const mapDispatchToProps = {
+  createLane,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Kanban);

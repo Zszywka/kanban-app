@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import Note from './Note';
 import styles from './Notes.css';
 
+//mapujemy wszystkie notki należące do jednej linii na komponenty Note.
 const Notes = ({ notes }) => {
   return (<ul className="notes">{notes.map((note) =>
     <Note

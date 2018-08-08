@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import Lane from './Lane.js';
+import Lane from './LaneContainer.js';
 
 //mapowaniem tablicy lanes przekazanej przez propsy na komponenty Lane
 //rozdzielenie danych o liniach z obiektu lanes na komponenty Lane za pomocą metody .map()
