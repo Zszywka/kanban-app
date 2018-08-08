@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import Lane from './Lane';
+//zaimportować wszystkie kreatory akcji linii oraz akcję tworzenia notek
 import * as laneActions from './LaneActions';
 import { createNote } from '../Note/NoteActions';
 
@@ -13,8 +14,11 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
+//podpiąć zaimportowane kreatory do propsów komponentu
+//operator spread, aby nie podpinać każdej akcji z osobna
 const mapDispatchToProps = {
   ...laneActions,
+//Podpinamy go do callbacka addNote, bo tak się nazywa w komponencie Lane
   addNote: createNote,
 };
 
