@@ -4,7 +4,7 @@ import styles from './Edit.css';
 
 export default class Edit extends Component {
 //sprawdzi każdy klawisz wciśnięty podczas trwania edycji wartości. Jeśli
-//wcisniesz Enter, to należy zakończyć edycję za pomocą wcześniej napisanej metody finishEdit.  
+//wcisniesz Enter, to należy zakończyć edycję za pomocą wcześniej napisanej metody finishEdit.
   checkEnter = (e) => {
     if (e.key === 'Enter') {
         this.finishEdit(e);

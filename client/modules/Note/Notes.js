@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import Note from './Note';
-import styles from './Notes.css';
+// import styles from './Notes.css';
 import Edit from '../../components/Edit';
 
 //mapujemy wszystkie notki należące do jednej linii na komponenty Note.
