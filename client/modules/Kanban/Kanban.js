@@ -19,8 +19,11 @@ const Kanban = (props) => (
       <Lanes lanes={props.lanes} />
   </div>
 );
-
-// Kanban.need = [() => { return fetchLanes(); }];
+//Korzystamy z niego tak naprawdę za każdym razem, kiedy budujemy bardziej
+//złożone kreatory akcji, czego przykładem jest właśnie fetchLanes
+//Funkcja ta zwraca inną funkcję, dzięki której możemy wybrać odpowiedni
+//moment do dispatchowania innego kreatora akcji.
+Kanban.need = [() => { return fetchLanes(); }];
 
 Kanban.propTypes = {
   lanes: PropTypes.array,

@@ -47,6 +47,7 @@
     "limax": "^1.3.0",
     "mern-cli": "^2.5.0",
     "mongoose": "^4.4.20",
+    "normalizr": "^3.2.4",
     "prop-types": "^15.6.2",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
