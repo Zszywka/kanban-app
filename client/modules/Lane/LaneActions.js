@@ -59,7 +59,7 @@ export function fetchLanes() {
     return callApi('lanes').then(res => {
       const normalized = normalize(res.lanes, lanes);
       const {lanes: normalizedLanes} = normalized.entities;
-//Następnie w funkcji fetchLanes musimy podmienić zwracane dane na znormalizowaną postać:
+//Następnie w funkcji fetchLanes musimy podmienić zwracane dane na znormalizowaną postać:o
       dispatch(createLanes(normalizedLanes));
     });
   };
