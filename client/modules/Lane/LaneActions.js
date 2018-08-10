@@ -1,11 +1,10 @@
-import uuid from 'uuid';
 //dodawanie, usuwanie oraz aktualizowanie linii znajdujących się w storze
 import callApi from '../../util/apiCaller';
 //zaimportować funkcję normalize oraz schemat, na podstawie którego chcemy
 //dokonać normalizacji danych:
 import { lanes } from '../../util/schema';
 import { normalize } from 'normalizr';
-	import { createNotes } from '../Note/NoteActions';
+import { createNotes } from '../Note/NoteActions';
 
  // Export Constants
 export const CREATE_LANE = 'CREATE_LANE';
@@ -22,10 +21,24 @@ export function createLane(lane) {
   return {
     type: CREATE_LANE,
     lane: {
-      id: uuid(),
       notes: [],
       ...lane,
     }
+  };
+}
+//id od servera przyjdzie
+//będzie wykonywał request do serwera, a następnie tworzył nową linię w storze
+//nowo utworzoną linię dodajmy do store'a dopiero, gdy dostaniemy odpowiedź z serwera
+//Nasza odpowiedź to nowo utworzona linia
+//Po utworzeniu nowej linii zwraca on nam obiekt linii, który przekazujemy
+// jako parametr do kreatora createLane
+//callApi wywołujemy z3 argumentami. Oprócz endpointa (pierwszy argument),
+// metoda, jaką komunikujemy się z serwerem ('post') oraz ciało zapytania (lane)
+export function createLaneRequest(lane) {
+  return (dispatch) => {
+    return callApi('lanes', 'post', lane).then(res => {
+      dispatch(createLane(res));
+    });
   };
 }
 
