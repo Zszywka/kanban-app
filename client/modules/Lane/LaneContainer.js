@@ -2,7 +2,9 @@ import { connect } from 'react-redux';
 import Lane from './Lane';
 //zaimportować wszystkie kreatory akcji linii oraz akcję tworzenia notek
 import * as laneActions from './LaneActions';
+import { deleteLaneRequest, updateLaneRequest, editLane } from './LaneActions';
 import { createNote } from '../Note/NoteActions';
+import { createLaneRequest, fetchLanes } from '../Lane/LaneActions';
 
 //podpiecie stanu
 //Wykorzystujemy tutaj propsy, które zostały przekazane do komponentu pojedynczej linii.
@@ -10,16 +12,17 @@ import { createNote } from '../Note/NoteActions';
 //a później szukamy odpowiedniej notki po jej identyfikatorze
 const mapStateToProps = (state, ownProps) => {
   return {
-    laneNotes: ownProps.lane.notes.map(noteId => state.notes.find(note => note.id === noteId))
+    laneNotes: ownProps.lane.notes.map(noteId => state.notes[noteId])
   };
 };
 
 //podpiąć zaimportowane kreatory do propsów komponentu
 //operator spread, aby nie podpinać każdej akcji z osobna
 const mapDispatchToProps = {
-  ...laneActions,
-//Podpinamy go do callbacka addNote, bo tak się nazywa w komponencie Lane
-  addNote: createNote,
+    editLane,    
+    deleteLane: deleteLaneRequest,
+    updateLane: updateLaneRequest,
+    addNote: createNoteRequest,
 };
 
 export default connect(

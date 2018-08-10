@@ -1,7 +1,6 @@
 //akcje powiązane z notkami
-// Export Constants
-import uuid from 'uuid';
 
+import uuid from 'uuid';	import callApi from '../../util/apiCaller';
 // Export Constants
 export const CREATE_NOTE = 'CREATE_NOTE';
 export const UPDATE_NOTE = 'UPDATE_NOTE';
@@ -14,10 +13,7 @@ export function createNote(note, laneId) {
   return {
     type: CREATE_NOTE,
     laneId,
-    note: {
-      id: uuid(),
-      ...note,
-    },
+    note,
   };
 }
 
@@ -43,9 +39,31 @@ export function editNote(noteId) {
   };
 }
 
+export function createNoteRequest(note, laneId) {
+  return (dispatch) => {
+    return callApi('notes', 'post', { note, laneId }).then(noteResp => {
+      dispatch(createNote(noteResp, laneId));
+    });
+
 export function createNotes(notesData) {
 	return {
 		type: CREATE_NOTES,
 		notes: notesData
 	};
+}
+
+export function updateNoteRequest(note) {
+  return (dispatch) => {
+    return callApi(`notes/${note.id}`, 'put', { note }).then(() => {
+      dispatch(updateNote(note));
+    });
+  };
+}
+
+export function deleteNoteRequest(noteId, laneId) {
+  return (dispatch) => {
+    return callApi(`notes/${noteId}`, 'delete', { laneId }).then(() => {
+      dispatch(deleteNote(noteId, laneId));
+    });
+  };
 }

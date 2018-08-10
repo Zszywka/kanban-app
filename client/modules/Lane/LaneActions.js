@@ -49,11 +49,27 @@ export function createLaneRequest(lane) {
   };
 }
 
+export function updateLaneRequest(lane) {
+	return dispatch => {
+		return callApi(`lanes/${lane.id}`, "put", lane).then(() => {
+			dispatch(updateLane(lane));
+		});
+	};
+}
+
  export function deleteLane(laneId) {
   return {
     type: DELETE_LANE,
     laneId
   };
+}
+
+export function deleteLaneRequest(laneId) {
+	return dispatch => {
+		return callApi(`lanes/${laneId}`, "delete").then(() => {
+			dispatch(deleteLane(laneId));
+		});
+	};
 }
 
 export function editLane(laneId) {

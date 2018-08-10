@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Lanes from '../Lane/Lanes';
 import styles from '../Lane/Lane.css';
-import { createLane, fetchLanes } from '../Lane/LaneActions';
+import { createLane } from '../Lane/LaneActions';
+// import { createLane, fetchLanes } from '../Lane/LaneActions';
 
 //przekazywanie informacji dotyczących linii
 //również będzie on odpowiadał za możliwość stworzenia nowej linii
@@ -31,7 +32,8 @@ Kanban.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  lanes: state.lanes,
+  //metodzie .values() możemy uzyskać tablicę wartości danego obiektu, 
+  lanes: Object.values(state.lanes),
 });
 
 const mapDispatchToProps = {
