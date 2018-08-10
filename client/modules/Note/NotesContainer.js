@@ -2,7 +2,7 @@
 //Każdą z nich będzie można edytować oraz usuwać (dodawanie notek -z pomocą kontenera Lane)
 import { connect } from 'react-redux';
 import Notes from './Notes';
-import { deleteNoteRequest, editNote, updateNoteRequest, moveWithinLane} from '../Note/NoteActions';
+import { deleteNoteRequest, editNote, updateNoteRequest} from '../Note/NoteActions';
 
 //potrzebujemy tylko kreatorów akcji obsługujących edycję oraz usuwanie notki,
 // dlatego właśnie wykorzystujemy operator spread.

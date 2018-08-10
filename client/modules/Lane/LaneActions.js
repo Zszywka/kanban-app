@@ -80,9 +80,13 @@ export function editLane(laneId) {
 }
 //zaimplementowanego tego kreatora
 export function createLanes(lanesData) {
-    return {
-        type: CREATE_LANES,
-        lanes: lanesData,
+    return (dispatch) => {
+      return (dispatch) => {
+        const normalized = normalize(res.lanes, lanes);
+        const { lanes: normalizedLanes, notes } = normalized.entities;
+        dispatch(createLanes(normalizedLanes));
+        dispatch(createNotes(notes));
+      }
     };
 }
 //po pobraniu wszystkich linii musimy wywołać kreator akcji createLanes,
