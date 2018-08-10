@@ -1,5 +1,8 @@
 You shoud write in the console:
+(normalizr)
 -> sudo npm install normalizr --save
+(React DnD)
+-> npm install --save react-dnd react-dnd-html5-backend
 
 --------------------------------------------------------------------------------------------------------![](http://res.cloudinary.com/hashnode/image/upload/w_200/v1466495663/static_imgs/mern/v2/mernio-logo.png)
 
