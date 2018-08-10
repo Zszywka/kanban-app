@@ -5,14 +5,18 @@ import callApi from '../../util/apiCaller';
 //dokonać normalizacji danych:
 import { lanes } from '../../util/schema';
 import { normalize } from 'normalizr';
+	import { createNotes } from '../Note/NoteActions';
+
  // Export Constants
 export const CREATE_LANE = 'CREATE_LANE';
 export const UPDATE_LANE = 'UPDATE_LANE';
 export const DELETE_LANE = 'DELETE_LANE';
 export const EDIT_LANE = 'EDIT_LANE';
 export const CREATE_LANES = 'CREATE_LANES';
+export const FETCH_LANES = "FETCH_LANES";
 
 //kreatorów tych akcji dla linii
+
 // Export Actions
 export function createLane(lane) {
   return {
@@ -61,6 +65,7 @@ export function fetchLanes() {
       const {lanes: normalizedLanes} = normalized.entities;
 //Następnie w funkcji fetchLanes musimy podmienić zwracane dane na znormalizowaną postać:o
       dispatch(createLanes(normalizedLanes));
+      dispatch(createNotes(notes));
     });
   };
 }
