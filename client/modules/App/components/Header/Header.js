@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import styles from './Header.css';	import styles from './Header.css';
+import styles from './Header.css';	
 // Import Style
 const Header = () => {
   return (

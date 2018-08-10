@@ -42,6 +42,13 @@ export function createLaneRequest(lane) {
   };
 }
 
+export function createLanes(lanesData) {
+    return {
+        type: CREATE_LANES,
+        lanes: lanesData,
+    };
+}
+
  export function updateLane(lane) {
   return {
     type: UPDATE_LANE,
@@ -78,24 +85,14 @@ export function editLane(laneId) {
     laneId
   };
 }
-//zaimplementowanego tego kreatora
-export function createLanes(lanesData) {
-    return (dispatch) => {
-      return (dispatch) => {
-        const normalized = normalize(res.lanes, lanes);
-        const { lanes: normalizedLanes, notes } = normalized.entities;
-        dispatch(createLanes(normalizedLanes));
-        dispatch(createNotes(notes));
-      }
-    };
-}
+
 //po pobraniu wszystkich linii musimy wywołać kreator akcji createLanes,
 // aby na podstawie danych pobranych z serwera stworzyć wszystkie linie
 export function fetchLanes() {
   return (dispatch) => {
     return callApi('lanes').then(res => {
       const normalized = normalize(res.lanes, lanes);
-      const {lanes: normalizedLanes} = normalized.entities;
+      const {lanes: normalizedLanes, notes } = normalized.entities;
 //Następnie w funkcji fetchLanes musimy podmienić zwracane dane na znormalizowaną postać:o
       dispatch(createLanes(normalizedLanes));
       dispatch(createNotes(notes));

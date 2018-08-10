@@ -44,6 +44,8 @@ export function createNoteRequest(note, laneId) {
     return callApi('notes', 'post', { note, laneId }).then(noteResp => {
       dispatch(createNote(noteResp, laneId));
     });
+  }  
+}
 
 export function createNotes(notesData) {
 	return {
