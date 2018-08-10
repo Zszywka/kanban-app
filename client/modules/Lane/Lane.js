@@ -1,5 +1,6 @@
 //propTypes- dobrze byłoby sprawdzać typy danych przekazywanych do komponentów
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types'
 import NotesContainer from '../Note/NotesContainer';
 import Edit from '../../components/Edit';
 

@@ -1,5 +1,6 @@
 //możliwe będzie przełączanie między trybem edycji a trybem wyświetlania treści
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types'
 import styles from './Edit.css';
 
 export default class Edit extends Component {
