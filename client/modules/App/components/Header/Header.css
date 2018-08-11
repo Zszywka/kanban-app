@@ -1,4 +1,6 @@
 .Heading {
   font-size: 46px;
-  color: #7b6a6a;
+  color: green;
+  text-align: center;
+  text-transform: uppercase;
 }
