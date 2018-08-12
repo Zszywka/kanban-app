@@ -4,3 +4,7 @@
 	margin-left: 20px;
 	background-color: white;
 }
+
+.value:hover {
+	cursor: pointer;
+}

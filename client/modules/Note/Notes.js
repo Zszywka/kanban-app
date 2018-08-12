@@ -12,12 +12,11 @@ const Notes = ({
   onDelete,
   moveWithinLane
 }) => {
-  return (<ul className="notes">{notes.map((note) =>
+  return (<ul className={styles.Notes}>{notes.map((note) =>
     <Note
       id={note.id}
       key={note.id}
       moveWithinLane={moveWithinLane}
-      editing={note.editing}
       laneId={laneId}
     >
       <Edit

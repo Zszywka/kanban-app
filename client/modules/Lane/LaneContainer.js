@@ -2,9 +2,8 @@ import { connect } from 'react-redux';
 import Lane from './Lane';
 //zaimportować wszystkie kreatory akcji linii oraz akcję tworzenia notek
 import { createNoteRequest } from '../Note/NoteActions';
-import { deleteLaneRequest, updateLaneRequest, editLane, moveBetweenLanesRequest } from './LaneActions';
-import { createNote } from '../Note/NoteActions';
-import { createLaneRequest, fetchLanes } from '../Lane/LaneActions';
+import { deleteLaneRequest, updateLaneRequest, editLane, moveBetweenLanes } from './LaneActions';
+//import { createLaneRequest, fetchLanes } from '../Lane/LaneActions';
 import { compose } from 'redux';
 import { DropTarget } from 'react-dnd';
 import ItemTypes from '../Kanban/itemTypes';
@@ -26,7 +25,7 @@ const mapDispatchToProps = {
     deleteLane: deleteLaneRequest,
     updateLane: updateLaneRequest,
     addNote: createNoteRequest,
-    moveBetweenLanes: moveBetweenLanesRequest,
+    moveBetweenLanes
 };
 
 const noteTarget = {

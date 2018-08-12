@@ -44,10 +44,10 @@ export function createLaneRequest(lane) {
 }
 
 export function createLanes(lanesData) {
-    return {
-        type: CREATE_LANES,
-        lanes: lanesData,
-    };
+  return {
+    type: CREATE_LANES,
+    lanes: lanesData,
+  };
 }
 
  export function updateLane(lane) {
@@ -59,7 +59,7 @@ export function createLanes(lanesData) {
 
 export function updateLaneRequest(lane) {
 	return dispatch => {
-		return callApi(`lanes/${lane.id}`, "put", lane).then(() => {
+		return callApi(`lanes/${lane.id}`, 'put', lane).then(() => {
 			dispatch(updateLane(lane));
 		});
 	};
@@ -73,8 +73,8 @@ export function updateLaneRequest(lane) {
 }
 
 export function deleteLaneRequest(laneId) {
-	return dispatch => {
-		return callApi(`lanes/${laneId}`, "delete").then(() => {
+	return (dispatch) => {
+		return callApi(`lanes/${laneId}`, 'delete').then(() => {
 			dispatch(deleteLane(laneId));
 		});
 	};
@@ -110,10 +110,10 @@ export function moveBetweenLanes(targetLaneId, noteId, sourceLaneId) {
   };
 }
 
-export function moveBetweenLanesRequest(targetLaneId, noteId, sourceLaneId) {
-	return dispatch => {
-		return callApi(`lanes/${sourceLaneId}/moveNote`, "put", {targetLaneId, noteId} ).then(() => {
-			dispatch(moveBetweenLanes(targetLaneId, noteId, sourceLaneId));
-		});
-	};
-}
+// export function moveBetweenLanesRequest(targetLaneId, noteId, sourceLaneId) {
+// 	return dispatch => {
+// 		return callApi(`lanes/${sourceLaneId}/moveNote`, "put", {targetLaneId, noteId} ).then(() => {
+// 			dispatch(moveBetweenLanes(targetLaneId, noteId, sourceLaneId));
+// 		});
+// 	};
+// }

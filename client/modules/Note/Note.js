@@ -43,9 +43,7 @@ class Note extends React.Component {
         className={styles.Note}
         style={{
           opacity: isDragging ? 0 : 1,
-        }}
-      >
-        {children}
+        }} >{children}
       </li>
     ));
   }

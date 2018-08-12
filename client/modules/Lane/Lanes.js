@@ -8,9 +8,9 @@ import styles from './Lane.css';
 //podczas iteracji po wielu elementach należy wykorzystać props key,(optymalizacja proc. renderujacych)
 const Lanes = ({ lanes }) => {
   return (
-    <div className={styles.Lanes}>{lanes.map(lane =>
-        <Lane className="lane" key={lane.id} lane={lane} />
-    )}</div>
+    <div className={styles.Lanes}>{lanes.map(lane => (
+      <Lane className="lane" key={lane.id} lane={lane} />
+    ))}</div>
   );
 };
 

@@ -34,11 +34,15 @@ Kanban.propTypes = {
 
 const mapStateToProps = state => ({
   //metodzie .values() możemy uzyskać tablicę wartości danego obiektu,
-  lanes: Object.values(state.lanes),
+  lanes: Object.values(state.lanes)
 });
 
 const mapDispatchToProps = {
   createLane: createLaneRequest,
+  fetchLanes
 };
 
-export default compose(connect(mapStateToProps, mapDispatchToProps),DragDropContext(HTML5Backend))(Kanban);
+export default compose(
+  connect(mapStateToProps, mapDispatchToProps),
+  DragDropContext(HTML5Backend)
+)(Kanban);

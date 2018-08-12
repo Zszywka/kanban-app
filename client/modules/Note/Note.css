@@ -5,3 +5,40 @@
 	color: #4c4040;
 	font-size: 18px;
 }
+
+.Notes > div > div {
+  padding: 4px;
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 5px;
+  background-color: #FFF;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.Notes span {
+  color: #595959;
+  font-style: italic;
+  font-weight: 400;
+}
+.Notes button {
+  width: 20px;
+  height: 20px;
+  font-size: 16px;
+  text-align: center;
+  line-height: 16px;
+  padding: 1px;
+  border-radius: 10%;
+  color: #fff;
+  background: #ff9900;
+  cursor: pointer;
+  border: 2px solid #ff9900;
+  transition: ease-in .3s;
+}
+
+.Notes button:hover {
+  background: #fff;
+  border: 2px solid #ff9900;
+  color: #ff9900;
+}
