@@ -18,9 +18,10 @@ export function createNote(note, laneId) {
   };
 }
 
-export function updateNote(note) {
+export function updateNote(note, laneId) {
   return {
     type: UPDATE_NOTE,
+    laneId,
     note,
   };
 }
@@ -28,15 +29,16 @@ export function updateNote(note) {
 export function deleteNote(noteId, laneId) {
   return {
     type: DELETE_NOTE,
-    noteId,
     laneId,
+    noteId,
   };
 }
 
-export function editNote(noteId) {
+export function editNote(noteId, laneId) {
   return {
     type: EDIT_NOTE,
-    noteId
+    laneId,
+    noteId,
   };
 }
 
@@ -57,7 +59,7 @@ export function createNoteRequest(note, laneId) {
 
 export function updateNoteRequest(note) {
   return (dispatch) => {
-    return callApi(`notes/${note.id}`, 'put', { note }).then(() => {
+    return callApi(`notes/${note.id}`, 'put', note).then(() => {
       dispatch(updateNote(note));
     });
   };
