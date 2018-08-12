@@ -61,7 +61,7 @@ export function deleteNote(req, res) {
   });
 }
 
-//????
+
 export function editNote(req, res) {
   Note.findOneAndUpdate({ id: req.params.noteId }, { $set: { task: req.body.note.task } } ).exec((err, note) => {
     if (err) {

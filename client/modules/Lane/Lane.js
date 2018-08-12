@@ -8,13 +8,13 @@ import styles from './Lane.css';
 
 //wyświetlaniem pojedynczej linii z notatkami
 const Lane = (props) => {
-  const { lane, laneNotes, updateLane, addNote, deleteLane, editLane } = props;
+  const {connectDropTarget, lane, laneNotes, updateLane, addNote, deleteLane, editLane } = props;
   const laneId = lane.id;
 //Handler onUpdate wykona się po zatwierdzeniu edycji, co polega na zaktualizowaniu
 //obiektu linii o nowe imię i zmianę trybu edycji na false.
 //Props editing wskazuje, czy jesteśmy w trybie edycji, natomiast za pomocą value
 //przekazujemy domyślną wartość dla komponentu <Edit>.
-  return (
+  return connectDropTarget (
     <div className={styles.Lane}>
       <div className={styles.LaneHeader}>
         <div className={styles.LaneAddNote}>
