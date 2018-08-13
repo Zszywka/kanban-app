@@ -2,7 +2,8 @@
 	padding: 5px 10px;
 	border: none;
 	margin-left: 20px;
-	background-color: white;
+	background-color: black;
+	color: white;
 }
 
 .value:hover {

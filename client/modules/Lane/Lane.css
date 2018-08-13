@@ -1,31 +1,59 @@
-/* Lane styles */
 .Lanes {
 	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
 }
-
 .Lane {
-	flex: 1;
-	background-color: #d4d4d4;
-	padding: 10px;
-	text-align: center;
+	background-color: #696969;
+	padding: 5px;
+	margin: 5px;
+	border-radius: 5%;
+	box-shadow: 5px 10px #888888;
+	min-width: 20%;
+	margin-bottom: 20px;
 }
 .LaneHeader {
+	border-bottom: 1px dotted #fff;
+	padding-bottom: 5px;
+	display: flex;
+	flex-direction: column;
 }
-
-.LaneAddNote button, .LaneDelete button {
-	background-color: #907373;
-	color: white;
-	border: none;
-	padding: 10px;
+.LaneAddNote {
+	align-self: flex-start;
+	width: 40%;
 }
-
-.LaneAddNote button:hover, .LaneDelete button:hover {
+.LaneAddNote button {
+	border-radius: 500px;
+	padding: 4%;
 	cursor: pointer;
+	background-color: transparent;
+	color: #0000CD;
+	border-color: #0000CD;
+}
+.LaneAddNote button:hover {
+	background-color: #0000CD;
+	color: #fff;
+}
+.LaneName {
+	text-align: center;
+	padding: 5px;
+	font-size: 20px;
+}
+.LaneDelete {
+	align-self: flex-end;
+	width: 40%;
 }
 
-.LaneName {
-	margin: 30px 0;
-	font-size: 34px;
-	text-decoration: underline;
-	color: #4c4040;
+.LaneDelete button {
+	border-radius: 5%;
+	padding: 1%;
+	cursor: pointer;
+	background-color: transparent;
+	color: #800000;
+	border-color: #DC143C;
+	font-weight: bold;
+}
+.LaneDelete button:hover {
+	background-color: #DC143C;
+	color: #fff;
 }
